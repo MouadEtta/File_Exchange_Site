@@ -1,0 +1,148 @@
+.uploadButtons{
+    margin-bottom: 1%;
+}
+
+
+
+.header{
+    margin-bottom: 1%;
+}
+
+.button-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .file-size {
+    white-space: nowrap;
+  }
+  p-table {
+    max-width: 50%;
+  }
+ 
+  .customDeleteButton.p-button-rounded {
+    background-color: rgb(107, 107, 107);
+    color: white;
+    border-color: rgb(107, 107, 107);
+  }
+  
+  .customDeleteButton.p-button-rounded:hover{
+    background-color: red; /* Personaliza el color del hover como desees-Customize the color of the hover as you wish */
+    color: white;
+    border-color: red; /* Personaliza el color del tablero flotante como desees-Customize the color of the floating board as you wish */
+  }
+  
+  .customDownloadButton.p-button-rounded {
+    background-color: #55a098;
+    color: white;
+    border-color: #55a098;
+  }
+  
+  .customDownloadButton.p-button-rounded:hover {
+    background-color: green; /* Personaliza el color del hover como desees-Customize the color of the hover as you wish */
+    color: white;
+    border-color: green; /* Personaliza el color del tablero flotante como desees-Customize the color of the floating board as you wish */
+  }
+
+
+
+   .customEmailButton.p-button-rounded {
+    background-color: #55a098;
+    color: white;
+    border-color: #55a098;
+  }
+  
+  .customEmailButton.p-button-rounded:hover {
+    background-color: rgb(197, 184, 0); /* Personaliza el color del hover como desees-Customize the color of the hover as you wish */
+    color: white;
+    border-color: rgb(197, 184, 0); /* Personaliza el color del tablero flotante como desees-Customize the color of the floating board as you wish */
+  }
+  
+
+:host ::ng-deep .p-fileupload .p-fileupload-buttonbar  {
+  background: #55a098 !important;
+  font-size: 20px;
+  font-weight: 600;
+}
+:host ::ng-deep .p-fileupload .p-fileupload-content  {
+  background: rgb(230, 230, 230) !important;
+  font-size: 20px;
+  font-weight: 600;
+}
+:host ::ng-deep .p-fileupload-content 
+  .p-fileupload-row.ng-star-inserted img {
+  width: 120px;
+  height: 75px;
+}
+
+:host ::ng-deep .ui-fileupload-override .p-button {
+  background-color:#61ada5  !important;
+  color: white !important;
+  border-color:#61ada5 !important;
+}
+
+:host ::ng-deep .ui-fileupload-override .p-button:hover {
+  background-color: #67b2aa !important;
+  color: white !important;
+  border-color:#67b2aa !important;
+}
+:host ::ng-deep .p-table .p-sortable-column .p-column-title {
+  background-color: #55a098 !important;
+  color: white !important;
+}
+
+:host ::ng-deep .p-table .p-sortable-column:hover .p-column-title {
+  background-color: #67b2aa !important;
+}
+.Nombre{
+  background-color: #67b2aa !important;
+  color:white !important;
+}
+.Column{
+  background-color: rgb(230, 230, 230) !important;
+}
+.Borr{
+  border-radius: 7%;
+}
+
+.enviarButton{margin-top: 2%;
+}
+
+.cancelarButton{margin-top: 2%;
+  margin-left: 2%;
+}
+
+.destinatarioInput{ display: flex;
+  align-items: center;
+  
+}
+
+.asuntoInput{ display: flex;
+  align-items: center;
+}
+
+.enviarButton {
+  background-color: #55a098;
+  color: white;
+  border-color: #55a098 !important;
+}
+
+.enviarButton:hover {
+  background-color: green;
+  color: white; 
+  border-color:green !important;
+}
+
+.cancelarButton {
+  background-color: rgb(107, 107, 107);
+  color: white;
+  border-color: rgb(107, 107, 107) !important;
+}
+
+.cancelarButton:hover {
+  background-color: red; 
+  color: white; 
+  border-color: red !important;
+}

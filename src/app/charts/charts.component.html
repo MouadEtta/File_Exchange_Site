@@ -1,0 +1,40 @@
+<div class="header">
+  <app-header (quitClicked)="onQuitClicked()"></app-header>
+</div>
+<p-toast></p-toast>
+<div class="card">
+<!---DROPDOWN MENU-->
+  <div class="card flex justify-content-center filter-container">
+    <p-dropdown [options]="users" [(ngModel)]="selectedUsers" (onChange)="onUserSelectionChange()" optionLabel="username" [filter]="true" filterBy="username,email" [showClear]="true" placeholder="Selecciona un usuario">
+        <ng-template pTemplate="selectedItem">
+            <div class="flex align-items-center gap-2" *ngIf="selectedUsers">
+                <div>{{ selectedUsers.username}}</div>
+            </div>
+        </ng-template>
+        <ng-template let-user pTemplate="item">
+          <div class="flex align-items-center gap-2">
+              <div>{{ user.username }}</div>
+          </div>
+      </ng-template>
+    </p-dropdown>
+<!--ISTOGRAM GRAPH-->
+  </div>
+  <div id="chart">
+  <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+</div>
+ </div>
+<!--BUTTON TO DOWNLOAD ISTOGRAM-->
+<div class="customDownloadButton">
+<p-button  icon="pi pi-arrow-circle-down" label="Descarga el gráfico" (onClick)="downloadChart()" styleClass="p-button-secondary"></p-button>
+</div>
+<!--CAKE GRAPH-->
+<div class="carde flex justify-content-center piccolo" *ngIf="isUserChartVisible">
+  <div id="chart1">
+    <p-chart type="pie" [data]="userData" [options]="userOptions" (onShow)="isUserChartVisible"></p-chart>
+  </div>
+  <!--BUTTON TO DOWNLOAD CAKE-->
+  <div class="customDownloadButton">
+  <p-button *ngIf="isUserChartVisible" icon="pi pi-arrow-circle-down" label="Descarga el gráfico" (onClick)="downloadUserChart()" styleClass="p-button-secondary"></p-button>
+</div>
+</div>
+

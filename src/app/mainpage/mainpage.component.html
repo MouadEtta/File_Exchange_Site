@@ -1,0 +1,112 @@
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <div class="header"><app-header (quitClicked)="onQuitClicked()"></app-header></div>
+    <!--UPLOAD BUTTONS-->
+    <div style="flex: 1;">
+    <div class="uploadButtons">
+      <p-fileUpload styleClass="ui-fileupload-override " name="demo[]" url="https://127.0.0.1:16370/api/mainpagee"  chooseLabel="Elegir" uploadLabel=" Cargar" cancelLabel=" Cancelar" (onUpload)="onUpload($event)" [multiple]="false" [maxFileSize]="100000000">
+        <ng-template pTemplate="content">
+          <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+          </ul>
+        </ng-template>
+      </p-fileUpload>
+    </div>
+  </div>
+    <p-toast></p-toast>
+    
+    <!--DATA TABLE-->
+    <p-table
+      #dt2
+      responsiveLayout="scroll"
+      [responsive]="true"
+      [value]="Files"
+      dataKey="id_file"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [paginator]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [globalFilterFields]="['name', 'type', 'content']"
+      [tableStyle]="{ 'min-width': '75rem' }">
+      
+      <ng-template pTemplate="header">
+        <!--COLUMN DIMENSIONS-->
+        <tr >
+          <th style="width: 45%" class="Nombre">Nombre</th>
+          <th style="width: 35%" class="Nombre">Tipo</th>
+          <th style="width: 10%" class="Nombre">Contenido</th>
+          <th class="Nombre"></th>
+          <th class="Nombre"></th>
+          <th class="Nombre"></th>
+        </tr>
+        <tr class="Column">
+          <th class="Column">
+            <p-columnFilter type="text" field="name"></p-columnFilter>
+          </th>
+          <th class="Column">
+            <p-columnFilter type="text" field="type"></p-columnFilter>
+          </th>
+          <th class="Column"></th>
+          <th class="Column"></th>
+          <th class="Column"></th>
+          <th class="Column"></th>
+        </tr>
+      </ng-template>
+      <!--DATA COLUMN AND BUTTONS SETTINGS-->
+      <ng-template pTemplate="body" let-file let-rowIndex="rowIndex">
+        <tr class="Column" [class.selected]="selectedRowIndex === rowIndex">
+          <td>{{ file.name }}</td>
+          <td>{{ TypeOfData(file.type) }}</td>
+          <td>
+            <span class="button-wrapper">
+             
+              <span>{{ formatSizeUnits(file.size) }}</span>
+            </span>
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-envelope" class="p-button-rounded p-button-success mr-2 download customEmailButton"
+            (click)="showEmailDialog(file)"></button>
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-download" class="p-button-rounded p-button-success mr-2 download customDownloadButton"
+              (click)="handleDownload(file)"></button>
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning customDeleteButton" 
+              (click)="DeleteFile(file)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p-confirmDialog #cd [style]="{width: '50vw'}">
+      <ng-template pTemplate="header">
+        <h3>¿Confirmar eliminación?</h3>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+      </ng-template>
+    </p-confirmDialog>
+    <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+    <p-dialog header="Enviar correo electrónico" [(visible)]="emailDialogVisible" [modal]="true" [responsive]="true" [style]="{width: '30vw'}" [draggable]="false"  class="custom-input">
+      <div>
+        <label for="toEmail">Destinatario: </label>
+        <input id="toEmail" class="destinatarioInput" type="text" pInputText [(ngModel)]="emailRecipient" formControlName="Destinatario"/>
+        
+        <div>
+          <label for="emailSubject">Asunto: </label>
+          <input id="emailSubject"  class="asuntoInput" type="text" pInputText [(ngModel)]="emailSubject" formControlName="Asunto"/>
+        </div>
+        
+      </div>
+    
+      <button pButton label="Enviar" class="p-button-success enviarButton" ></button>
+      <button pButton label="Cancelar" class="p-button-danger cancelarButton" (click)="hideEmailDialog()"></button>
+    </p-dialog>
+    </form>
+
+  </div>
+ 
+</div>

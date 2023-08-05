@@ -1,0 +1,41 @@
+.margin{margin-bottom: 6%;}
+
+html{
+    background-color: rgb(230, 230, 230) !important;
+}
+
+.card{
+    all: unset;
+    border-radius: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color:#f5f5f5;  
+  
+  
+  }
+button{margin-top: 8%;}
+
+.underline {
+  text-decoration: underline;
+}
+.custom-button {
+  background-color: #55a098;
+  color: white;
+}
+
+.custom-button:hover {
+  background-color: #55a098;
+  color: white;
+}
+
+.underline{
+  color:#55a098
+}
+

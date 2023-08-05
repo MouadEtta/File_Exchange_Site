@@ -1,0 +1,23 @@
+<div class="card flex justify-content-center"><p-card header="Login" subheader="" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+        <img alt="Card" src="https://www.vegasnietoabogados.com/wp-content/uploads/2018/11/logo2x-vegasnietoabogados.jpg" />
+    </ng-template>
+    <p-toast></p-toast>
+<!--LOGIN FORM-->
+    <form [formGroup]="loginForm" (ngSubmit)="check()">      
+        <span class="margin p-float-label">
+            <input pInputText id="Username"  formControlName="Username"  />
+            <label htmlFor="Username">Usuario/Correo electrónico</label>
+        </span>
+    <span class="margin p-float-label">
+        <p-password formControlName="Password" [feedback]="false"></p-password>
+        <label for="password">Contraseña</label>
+    </span>
+<p>
+    <!--SIGN IN LINK-->
+<a class="underline" routerLink="/signin">Registrar aquí</a>
+</p>
+    <button class="custom-button  w-full p-3"  [disabled]="!loginForm.valid" type="submit" pButton pRipple label="LogIn" icon="pi pi-user"></button>
+    </form>
+</p-card></div>
+        

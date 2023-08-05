@@ -1,0 +1,16 @@
+.carde{
+    width: 100%;    /* La larghezza si adatta al contenitore genitore */
+    max-width: 400px;  /* Imposta la larghezza massima desiderata */
+    height: auto;   
+    justify-content: center;
+    align-items: center;
+}
+
+.customDownloadButton{
+    text-align: center;
+    margin-top: 2%;
+    }
+
+.filter-container{
+    margin-top: 1%;
+}

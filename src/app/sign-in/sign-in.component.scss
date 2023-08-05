@@ -1,0 +1,29 @@
+.margin{margin-bottom: 6%;}
+
+.card{
+    all: unset;
+    border-radius: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+.cancelar{margin-left: 15%;}
+
+.custom-button {
+  background-color: #55a098;
+  color: white;
+  border-color: #55a098;
+}
+
+.custom-button:hover {
+  background-color: #55a098;
+  color: white;
+  border-color: #55a098;
+}
